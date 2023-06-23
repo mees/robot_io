@@ -1,0 +1,8 @@
+_target_: robot_io.input_devices.keyboard_input.KeyboardInput
+_recursive_: false
+act_type: 'continuous'
+initial_gripper_state: 'open'
+dv: 0.01
+drot: 0.03
+mode: '7dof'
+reference_frame: "tcp"

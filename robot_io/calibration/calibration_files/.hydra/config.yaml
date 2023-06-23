@@ -1,0 +1,173 @@
+robot:
+  ik:
+    _target_: robot_io.ik.IKfast.IKfast
+    _recursive_: false
+    rp: ${robot.neutral_pose}
+    ll:
+    - -2.8973
+    - -1.7628
+    - -2.8973
+    - -3.0718
+    - -2.8973
+    - -0.0175
+    - -2.8973
+    ul:
+    - 2.8973
+    - 1.7628
+    - 2.8973
+    - -0.0698
+    - 2.8973
+    - 3.7525
+    - 2.8973
+    weights:
+    - 10
+    - 8
+    - 6
+    - 6
+    - 2
+    - 2
+    - 1
+    num_angles: 100
+    use_rest_pose: true
+  _target_: robot_io.robot_interface.panda_frankx_interface.PandaFrankXInterface
+  _recursive_: false
+  fci_ip: 192.168.180.87
+  urdf_path: misc/panda_urdf/panda_longer_finger.urdf
+  ll:
+  - -2.8973
+  - -1.7628
+  - -2.8973
+  - -3.0718
+  - -2.8973
+  - -0.0175
+  - -2.8973
+  ul:
+  - 2.8973
+  - 1.7628
+  - 2.8973
+  - -0.0698
+  - 2.8973
+  - 3.7525
+  - 2.8973
+  neutral_pose:
+  - -0.017792060227770554
+  - -0.7601235411041661
+  - 0.019782607023391807
+  - -2.342050140544315
+  - 0.029840531355804868
+  - 1.5411935298621688
+  - 0.7534486589746342
+  workspace_limits:
+  - 0.25
+  - 0.8
+  - 0.02
+  - 0.6
+  use_impedance: true
+  libfranka_params:
+    contact_torque_threshold:
+    - 20
+    - 20
+    - 18
+    - 18
+    - 16
+    - 14
+    - 12
+    collision_torque_threshold:
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    - 100
+    contact_force_threshold:
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+    - 5
+    collision_force_threshold:
+    - 30
+    - 30
+    - 30
+    - 30
+    - 30
+    - 30
+    franka_joint_impedance:
+    - 50
+    - 50
+    - 50
+    - 50
+    - 50
+    - 50
+    - 50
+  frankx_params:
+    velocity_rel: 0.3
+    acceleration_rel: 0.3
+    jerk_rel: 0.2
+  impedance_params:
+    translational_stiffness: 500
+    rotational_stiffness: 60
+    damping_xi:
+    - 1
+    - 1
+    - 1
+    - 0.5
+    - 0.5
+    - 0.5
+    joint_stiffness: 200
+    use_nullspace: true
+    nullspace_stiffness: 10
+    q_d_nullspace:
+    - -0.017792060227770554
+    - -0.7601235411041661
+    - 0.019782607023391807
+    - -2.342050140544315
+    - 0.029840531355804868
+    - 1.5411935298621688
+    - 0.7534486589746342
+  gripper_params:
+    speed: 1
+    force: 20
+    timeout: 2
+    opening_threshold: 0.04
+    closing_threshold: 0.04
+  rel_action_params:
+    relative_action_reference_frame: desired
+    relative_action_control_frame: world
+    relative_pos_clip_threshold: 0.05
+    relative_rot_clip_threshold: 0.3
+    max_ee_pitch: 30
+    max_ee_roll: 60
+    limit_control_5_dof: false
+    default_orn_x: 3.141593
+    default_orn_y: 0
+input:
+  _target_: robot_io.input_devices.vr_input.VrInput
+  _recursive_: false
+  robot: ???
+  button_hold_threshold: 60
+  workspace_limits: ${robot.workspace_limits}
+  tracking_error_threshold: 0.05
+cam:
+  _target_: robot_io.cams.kinect4.kinect4.Kinect4
+  _recursive_: false
+  device: 0
+  align_depth_to_color: true
+  resolution: 1080p
+  undistort_image: true
+  fps: 30
+recorder:
+  _target_: robot_io.recorder.calib_recorder.CalibRecorder
+  _recursive_: false
+  n_digits: 6
+  save_dir: ???
+marker_detector:
+  _target_: robot_io.marker_detection.apriltag_detector.ApriltagDetector
+  cam: ???
+  marker_description: ./tags/marker_36h11b2_3x3x_3cm_two.json
+  min_tags: 3
+save_dir: ../calibration/calibration_files/
+record_new_poses: false
+freq: 30

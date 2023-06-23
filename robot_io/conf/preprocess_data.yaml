@@ -1,0 +1,3 @@
+dataset_root: /export/home/huang/
+output_dir: /tmp/processed_data
+cam_num: 1

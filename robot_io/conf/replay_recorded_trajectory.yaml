@@ -1,0 +1,19 @@
+defaults:
+  - env: env
+  - robot: panda_frankx_interface_policy
+  - cams: no_cameras
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - _self_
+
+rel_action_type: aa
+hydra:
+  run:
+    dir: ${save_dir}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+save_dir: /tmp/
+load_dir: ???
+use_rel_actions: true
+
+env:
+  freq: 15

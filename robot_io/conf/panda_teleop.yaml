@@ -1,0 +1,18 @@
+defaults:
+  - env: env
+  - robot: panda_frankx_interface_vr
+  - input: vr_input
+  - recorder: vr_recorder
+  - cams: camera_manager
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - _self_
+
+hydra:
+  run:
+    dir: ${save_dir}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+save_dir: /tmp/test_record1
+env:
+  freq: 30
+  show_fps: false

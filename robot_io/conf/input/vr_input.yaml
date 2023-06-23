@@ -1,0 +1,6 @@
+_target_: robot_io.input_devices.vr_input.VrInput
+_recursive_: false
+robot: ???
+button_hold_threshold: 60
+workspace_limits: ${robot.workspace_limits}
+tracking_error_threshold: 0.05

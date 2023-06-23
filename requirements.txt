@@ -1,0 +1,17 @@
+setuptools
+numpy
+open3d
+scipy
+gym
+numba
+spnav
+hydra-core
+hydra-colorlog
+opencv-python
+digit-interface
+numpy-quaternion
+gitpython
+pyttsx3
+Cython
+commentjson
+pygame
