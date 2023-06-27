@@ -68,7 +68,7 @@ cd affx; git checkout -b frankx_version dabe0ba; cd ..
 cd ruckig; git checkout -b frankx_version 31f50f0; cd ..
 
 conda install pybind11
-vim setupy.py  # add "-DFranka_DIR=/opt/ros/noetic/share/franka/cmake/"
+vim setupy.py  # add "-DFranka_DIR=/usr/lib/cmake/Franka"
 pip install -e .
 firefox https://192.168.180.87/desk/  # unlock joints
 export LD_LIBRARY_PATH=/opt/ros/noetic/lib/:$LD_LIBRARY_PATH
